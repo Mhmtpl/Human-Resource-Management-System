@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Human-Resource-Management-System", "Human-Resource-Management-System\Human-Resource-Management-System.csproj", "{00554B70-3B9C-48F2-83DA-B43DAC01EE60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{8F5D4CF2-58EF-41D2-90CD-014D5D796D1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00554B70-3B9C-48F2-83DA-B43DAC01EE60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00554B70-3B9C-48F2-83DA-B43DAC01EE60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00554B70-3B9C-48F2-83DA-B43DAC01EE60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00554B70-3B9C-48F2-83DA-B43DAC01EE60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F5D4CF2-58EF-41D2-90CD-014D5D796D1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F5D4CF2-58EF-41D2-90CD-014D5D796D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F5D4CF2-58EF-41D2-90CD-014D5D796D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F5D4CF2-58EF-41D2-90CD-014D5D796D1F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2315DDD-AFF5-4277-A291-5FA4B2924BB1}
+	EndGlobalSection
+EndGlobal
