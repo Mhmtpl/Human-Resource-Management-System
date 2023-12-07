@@ -13,7 +13,7 @@ namespace Human_Resource_Management_System.Controllers
         {
             _context = context;
         }
-
+        //
         public IActionResult Index()
         {
             var model=_context.Departments;
