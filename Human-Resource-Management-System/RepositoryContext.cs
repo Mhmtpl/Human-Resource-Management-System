@@ -7,7 +7,6 @@ namespace Human_Resource_Management_System
     {
         public RepositoryContext(DbContextOptions<RepositoryContext> options) : base(options)
         {
-
         }
         public DbSet<Employee> Employees { get; set; }
 
