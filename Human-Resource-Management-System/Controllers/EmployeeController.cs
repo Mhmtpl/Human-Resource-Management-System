@@ -27,14 +27,24 @@ namespace Human_Resource_Management_System.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create([FromForm] Employee employee)
         {
-            if (ModelState.IsValid)
+
+            try
             {
-                _context.Employees.Add(employee);
-                _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    _context.Employees.Add(employee);
+                    _context.SaveChanges();
+                    return RedirectToAction(nameof(Index));
+                }
+
+                return RedirectToAction("Create");
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
 
-            return RedirectToAction("Create");
         }
 
         public IActionResult Update(int id)
@@ -47,34 +57,53 @@ namespace Human_Resource_Management_System.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Update([FromForm] Employee employee)
         {
-
-            var model = _context.Employees.FirstOrDefault(x => x.EmployeeId.Equals(employee.Id));
-
-            if (model is not null)
+            try
             {
-                model.FirstName = employee.FirstName;
-                model.LastName = employee.LastName;
-                model.DateOfBirth = employee.DateOfBirth;
-                _context.SaveChanges();
-            }
-            else
-                return NotFound();
+                var model = _context.Employees.FirstOrDefault(x => x.EmployeeId.Equals(employee.Id));
 
-            return RedirectToAction("Index");
+                if (model is not null)
+                {
+                    model.FirstName = employee.FirstName;
+                    model.LastName = employee.LastName;
+                    model.DateOfBirth = employee.DateOfBirth;
+                    _context.SaveChanges();
+                }
+                else
+                    return NotFound();
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
-            var model = _context.Employees.Find(id);
-            if (model is not null)
+
+            try
             {
-                _context.Employees.Remove(model);
-                _context.SaveChanges();
+                var model = _context.Employees.Find(id);
+                if (model is not null)
+                {
+                    _context.Employees.Remove(model);
+                    _context.SaveChanges();
+                }
+
+                return RedirectToAction("Index");
+
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
 
-            return RedirectToAction("Index");
         }
     }
 }
