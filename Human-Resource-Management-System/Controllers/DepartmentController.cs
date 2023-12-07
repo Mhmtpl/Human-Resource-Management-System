@@ -16,15 +16,9 @@ namespace Human_Resource_Management_System.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var model=_context.Departments;
+            return View(model);
         }
-
-        public IActionResult Details(int id)
-        {
-            return View();
-        }
-
-
         public IActionResult Create()
         {
             return View();
@@ -35,14 +29,24 @@ namespace Human_Resource_Management_System.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Department department)
         {
+
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    _context.Departments.Add(department);
+                    _context.SaveChanges();
+                    return RedirectToAction(nameof(Index));
+                }
+
+                return RedirectToAction("Create");
             }
-            catch
+            catch (Exception)
             {
-                return View();
+
+                throw;
             }
+
         }
 
 

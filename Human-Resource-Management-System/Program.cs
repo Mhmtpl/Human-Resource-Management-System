@@ -1,3 +1,4 @@
+using Entities.Models;
 using Human_Resource_Management_System;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,12 +7,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
+
 builder.Services.AddDbContext<RepositoryContext>(options => {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("sqlConnection"),
-    b => b.MigrationsAssembly("Human-Resource-Management-System"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("sqlConnection"));
 });
 // Configure the HTTP request pipeline.
+
+builder.Services.AddScoped<Department>();
+builder.Services.AddScoped<Employee>();
+builder.Services.AddScoped<Leave>();
+
+var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");

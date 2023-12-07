@@ -1,0 +1,45 @@
+﻿@model IQueryable<Department>
+<style>
+    .last-column {
+        max-width: 2px;
+        overflow: hidden;
+    }
+</style>
+
+<div class="text-center">
+    <div class="display-6"> Employee</div>
+    <div class="float-right">
+        <a class="btn btn-success" asp-action="Create">
+            <i class="fa fa-edit"></i>
+            Create
+        </a>
+    </div>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Department emp in Model)
+        {
+            <tr>
+                <th scope="row">@emp.DepartmentId</th>
+                <td>@emp.Name</td>
+                
+                <td class="last-column">
+                    <div class="text-right">                        
+                        <a class="btn btn-warning" asp-action="Update" asp-route-id="@emp.DepartmentId">
+                            <i class="fa fa-edit"></i>
+                            Edit
+                        </a>
+                        @Html.ActionLink("Delete", "Delete", new { Id = emp.DepartmentId }, new { @class = "btn btn-danger", onclick = "return confirm('Are you sure?')" })
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

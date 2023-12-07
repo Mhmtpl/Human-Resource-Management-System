@@ -9,6 +9,8 @@ namespace Human_Resource_Management_System
         {
         }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Leave> Leaves { get; set; }
 
     }
 
